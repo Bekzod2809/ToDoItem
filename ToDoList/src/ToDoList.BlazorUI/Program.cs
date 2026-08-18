@@ -11,7 +11,7 @@ builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
 // API base address (from wwwroot/appsettings.json).  
-var apiBaseUrl = builder.Configuration["ApiBaseUrl"] ?? "http://46.224.208.19:5000/";
+var apiBaseUrl = builder.Configuration["ApiBaseUrl"] ?? "http://169.58.146.228:5000/";
 
 // Local storage for tokens.  
 builder.Services.AddBlazoredLocalStorage();
