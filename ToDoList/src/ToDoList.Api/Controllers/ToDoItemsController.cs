@@ -70,6 +70,8 @@ public class ToDoItemsController : ControllerBase
         var result = await _toDoItemService.ToggleCompleteAsync(id);
         return Ok(result);
     }
+
+    [HttpGet]
     public string Test()
     {
         var text = "CI/CD backend ham ishlayapti";
