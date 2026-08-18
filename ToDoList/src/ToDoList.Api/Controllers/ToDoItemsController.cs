@@ -71,7 +71,7 @@ public class ToDoItemsController : ControllerBase
         return Ok(result);
     }
 
-    [HttpGet]
+    [HttpGet("test")]
     public string Test()
     {
         var text = "CI/CD backend ham ishlayapti";
