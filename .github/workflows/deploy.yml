@@ -1,39 +1,33 @@
 name: Docker Build & Deploy
-
 on:
   push:
     branches:
       - main
-
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
       - name: Login to Docker Hub
         uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-
       - name: Build & push API image
         run: |
           docker build \
             -f ToDoList/src/ToDoList.Api/Dockerfile \
-            -t bunyodmusayev/todolist-api:latest \
+            -t bekzodxasanov/todolist-api:latest \
             ToDoList
-          docker push bunyodmusayev/todolist-api:latest
-
+          docker push bekzodxasanov/todolist-api:latest
       - name: Build & push Blazor image
         run: |
           docker build \
             -f ToDoList/src/ToDoList.BlazorUI/Dockerfile \
-            -t bunyodmusayev/todolist-blazor:latest \
+            -t bekzodxasanov/todolist-blazor:latest \
             ToDoList
-          docker push bunyodmusayev/todolist-blazor:latest
-
+          docker push bekzodxasanov/todolist-blazor:latest
   deploy:
     needs: build-and-push
     runs-on: ubuntu-latest
